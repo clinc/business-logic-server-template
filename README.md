@@ -11,3 +11,9 @@ A template server for business logic intergation with the Clinc AI platform.
 ```
 docker-compose up
 ```
+
+# Business logic interface
+TBA
+
+# Adding your own business logic
+TBA
