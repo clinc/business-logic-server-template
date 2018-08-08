@@ -1,6 +1,6 @@
 # Business Logic Server Template
 
-A template server for business logic intergation with the Clinc AI platform.
+A template server for business logic integration with the Clinc AI platform.
 
 # Dependencies
 - [docker](https://docs.docker.com/install/)
