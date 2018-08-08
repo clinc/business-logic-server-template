@@ -19,7 +19,7 @@ from my_project.my_app import views
 # pylint: disable=invalid-name
 
 urlpatterns = [
-    url(r'^$', views.Sum.as_view()),
+    url(r'^$', views.BusinessLogic.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
