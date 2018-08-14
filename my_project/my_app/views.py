@@ -2,7 +2,7 @@
 Create your views here.
 """
 import json
-from hotels import find_express_deal
+from hotels import find_express_deal, check_available_credit
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status  # pylint: disable=unused-import
