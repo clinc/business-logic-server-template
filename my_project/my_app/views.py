@@ -17,7 +17,6 @@ from rest_framework import status  # pylint: disable=unused-import
 class BusinessLogic(APIView):
     """
     This is an example of adding/modifying slots using business logic, using
-    the QSR AI Version.
     """
     def post(self, request, _format=None):  # pylint: disable=unused-argument, no-self-use
         """

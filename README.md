@@ -1,16 +1,24 @@
 # Business Logic Server Template
 
-A template server for business logic intergation with the Clinc AI platform.
+A template server for business logic integration with the Clinc AI platform.
 
 # Dependencies
 - [docker](https://docs.docker.com/install/)
 - [docker-compose](https://docs.docker.com/compose/)
 
 
-# Start the server
+# Start the server locally
 ```
 docker-compose up
 ```
+# Start the server on Heroku
+1. Create an app on Heroku.
+2. In the `Settings` page of the heroku app, configure the app to use the default stack (currently `heroku-16`) and the python buildpack.
+3. In the `Deploy` page of the app, configure the app to be connected to this github repo.
+4. Add the URL of the heroku app to the ALLOWED_HOSTS list in `my_project/settings.py`
+5. Push to the github repo and deploy the heroku app. You can either configure the heroku app to automatically deploy on every push to a branch or manually deploy.
+6. Configure in the Clinc Platform to connect to the heroku app. Refer to the documentation in the Clinc Platform for details.
+
 
 # Business Logic Interface
 
@@ -30,6 +38,7 @@ On every request, the platform will check (1) if the user has Business Logic set
 ```
 POST /<BL-URL> HTTP/1.1
 {
+
     "qid": "6d090a7e-ba91-4b49-b9d5-441f179ccbbe",
     "lat": 42.2730207,
     "lon": -83.7517747,
@@ -69,6 +78,7 @@ POST /<BL-URL> HTTP/1.1
     }
 }
 ```
+
 ### Explanation of Business Logic payload keys:
 
   * `lat` : Latitude of the query origin.
@@ -94,6 +104,7 @@ The only mutable fields in the business logic payload are `slots` and `state`, w
   * `resolved` : Whether an extracted token has already been resolved.  Slots extracted from a user's query for the first time will be sent with a `"resolved": -1`.  There are three possible values that can be returned:  `-1` for unresolved,  `0` for unsure, and `1` for already resolved. These will be explained in more detail in the next section.
 
 A response back to the platform should look similar to the following example:
+
 
 ```
 HTTP/1.1 200 OK
@@ -311,6 +322,7 @@ HTTP/1.1 200 OK
     }
 }
 ```
+
 
 Upon a successful response from a Business Logic server, the new set of variables will be directly passed into the user's response templates, allowing them to customize their responses with the new slots introduced in the Business Logic.
 
